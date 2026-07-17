@@ -38,10 +38,15 @@ services:
     environment:
       - BASE_URL=https://localhost
       - BASE_URL_01=https://ecovacs.com
+      - BASE_URL_02=https://ecouser.net
+      - BASE_URL_03=https://ecovacs.net
+      - BASE_URL_04=https://iot-auth-global.aliyuncs.com
+      - BASE_URL_05=https://public.iot-as-mqtt.cn-shanghai.aliyuncs.com
+      - BASE_URL_06=https://jmq-ngiot-ch.area.ww.ecouser.net
       - MYSQL_USER=dev
       - MYSQL_PASSWORD=dev
       - MYSQL_DATABASE=dev
-      - TZ=America/New_York
+      - TZ=Europe/Zurich
     command: bash -c './generate_certs.sh && yarn install && yarn run dev'
     stdin_open: true
     restart: unless-stopped
