@@ -36,6 +36,10 @@ services:
       - ./backend:/opt/app
     user: '${UID}:${GID}'
     environment:
+      - BOTID=${BOTID}
+      - BOTCLASS=${BOTCLASS}
+      - RESOURCE=${RESOURCE}
+      - HOST_IP=${HOST_IP}
       - BASE_URL=https://localhost
       - BASE_URL_01=https://ecovacs.com
       - BASE_URL_02=https://ecouser.net
@@ -58,7 +62,7 @@ services:
     ports:
       - 8883:8883
       - 443:443
-      - 3000:3000
+      - 3001:3000
       - 8070:80
     networks:
       default:
@@ -77,8 +81,10 @@ services:
       dockerfile: Dockerfile
     user: '${UID}:${GID}'
     environment:
+      - REACT_APP_HOST_IP=${HOST_IP}
+      - REACT_APP_WS_PORT=3001
       - WDS_SOCKET_PORT=0
-      - TZ=America/New_York
+      - TZ=Europe/Zurich
     networks:
       default:
     volumes:
