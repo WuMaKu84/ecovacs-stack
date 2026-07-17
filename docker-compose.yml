@@ -26,9 +26,7 @@ services:
   backend:
     depends_on:
       - mysql
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ecovacs-backend:local
     networks:
       ecovacs_stack:
       default:
@@ -76,9 +74,7 @@ services:
   frontend:
     depends_on:
       - nginx
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ecovacs-frontend:local
     user: '${UID}:${GID}'
     environment:
       - REACT_APP_HOST_IP=${HOST_IP}
